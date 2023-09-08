@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import dietRoutes from "./routes/dietRoutes.js";
 dotenv.config()
 
 const app = express()
@@ -12,6 +13,8 @@ app.use(cors({
 }))
 
 const port = 5000
+
+app.use('/api/diet', dietRoutes)
 
 app.get('/', (req, res) => {
     res.send('API is running....');
